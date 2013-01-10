@@ -14,5 +14,4 @@ group :production do
   gem 'uglifier'
   gem 'execjs'
   gem 'therubyracer'
-  gem 'v8'
 end
