@@ -11,7 +11,4 @@ end
 
 group :production do
   gem 'mysql'
-  gem 'uglifier'
-  gem 'execjs'
-  gem 'libv8'
 end
