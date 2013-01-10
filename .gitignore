@@ -19,7 +19,5 @@
 
 #ignore the vagrant stuff
 /.vagrant
-/Cheffile
 /Cheffile.lock
-/Vagrantfile
 /cookbooks
