@@ -1,6 +1,7 @@
-stylelist :
+<sitekey> : 
   varnish :
-    - url : ec2-107-22-129-42.compute-1.amazonaws.com
-      port : 80
-    - url : ec2-107-21-171-97.compute-1.amazonaws.com
-      port : 80
+    - url : <Varnish URL>
+      port : <Varnish Port>
+    - url : <Varnish URL>
+      port : <Varnish Port>
+      
