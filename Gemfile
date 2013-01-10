@@ -11,4 +11,5 @@ end
 
 group :production do
   gem 'mysql'
+  gem 'uglifier'
 end
