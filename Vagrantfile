@@ -13,5 +13,7 @@ Vagrant::Config.run do |config|
     chef.add_recipe "build-essential"
     chef.add_recipe "git"
     chef.add_recipe "varnish"
+    chef.add_recipe "apache2"
+    chef.add_recipe "mysql::server"
   end
 end
