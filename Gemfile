@@ -12,4 +12,7 @@ end
 group :production do
   gem 'mysql'
   gem 'uglifier'
+  gem 'execjs'
+  gem 'therubyracer'
+  gem 'v8'
 end
