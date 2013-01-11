@@ -41,7 +41,9 @@ class Invalid8Controller < ApplicationController
             entry["full_url"] = "http://#{instance.url}:#{instance.port}#{@path}"
             
             #execute the request and store the value
-            response = system "curl -XPURGE #{entry['full_url']}"
+            response = varnish(entry["full_url"])
+            
+            #read the response
             if(response == "200 OK")
               entry["response"] = "SUCCESS"
             else
@@ -66,4 +68,10 @@ class Invalid8Controller < ApplicationController
     redirect_to "/#{sitekey}?#{path}"
   end
   
+private
+
+  def varnish(full_url)
+    response = system "curl -XPURGE #{full_url}"
+    return response
+  end
 end
