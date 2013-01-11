@@ -1,9 +1,17 @@
-<h4>Example config.yml</h4>
-<pre>
-    &lt;sitekey&gt; :
-      varnish :
-        - url : &lt;Varnish URL&gt;
-          port : &lt;Varnish port&gt;
-        - url : &lt;Varnish URL&gt;
-          port : &lt;Vanrish port&gt;
-</pre>
+<form action="/invalid8" method="post">
+      <div>
+          <h3>Site</h3>
+          <select name="sitekey">
+              <% @options.each do |key| %>
+                <option value="<%= key %>"><%= key %></option>
+              <% end %>
+          </select>
+      </div>
+      <div>
+          <h3>Path</h3>
+          <input name="path" type="text" class="input-xxlarge" placeholder="/path/to/invalidate">
+      </div>
+      <div>
+          <button type="submit" class="btn">Invalidate</button>
+      </div>
+  </form>

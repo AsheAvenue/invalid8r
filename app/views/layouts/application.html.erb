@@ -35,36 +35,12 @@
           <hr>
 
           <div>
-              <h1>Invalidate cached Varnish URLs with ease</h1>
+              <h1>Invalidate cached pages with ease</h1>
           </div>
 
           <hr />
-
-          <form action="/invalid8" method="post">
-              <div>
-                  <h3>Site</h3>
-                  <select name="sitekey">
-                      <% @sitekeys.each do |key| %>
-                        <option value="<%= key %>"><%= key %></option>
-                      <% end %>
-                  </select>
-              </div>
-              <div>
-                  <h3>Path</h3>
-                  <input type="text" class="input-xxlarge" placeholder="/path/to/invalidate">
-              </div>
-              <div>
-                  <button type="submit" class="btn">Invalidate</button>
-              </div>
-          </form>
-
-          <hr />
-
-        <div class="row-fluid">
-            <div class="span12">
+          
                 <%= yield %>
-            </div>
-        </div>
         
         <hr />
         

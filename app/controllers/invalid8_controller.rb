@@ -1,16 +1,9 @@
-require 'yaml'
-
 class Invalid8Controller < ApplicationController
   
   def index
-    
-    puts "hi"
-    puts Invalid8rConfig
-    puts "bye"
-    
-    self.config.keys.each do |key, value|
-      puts "Key: " << key
-      puts "Value: " << value
+    @options = Array.new
+    Settings.invalid8r.each do |site|
+      @options << site.sitekey
     end
     
     @sitekeys = Array.new
@@ -20,10 +13,57 @@ class Invalid8Controller < ApplicationController
     #get the site key
     @sitekey = params[:sitekey]
     
-    #find the config element that matches the sitekey
-    @test = Rails.config[@sitekey]
-    
+    #and get the path
     @path = request.query_string
+    
+    #redirect if sitekey or path is missing
+    if(@sitekey == "" || @path == "")
+      redirect_to "/"
+    end
+    
+    #loop through the settings
+    Settings.invalid8r.each do |site|
+      
+      #stop when we get to the sitekey
+      if (site.sitekey == @sitekey)
+        
+        #now loop through all the services
+        @services = Array.new
+        site.services.each do |service|
+          
+          #get the service name
+          @services << service.name
+          
+          #loop through instances
+          @instances = Array.new
+          service.instances.each do |instance|
+            entry = Hash.new
+            entry["full_url"] = "http://#{instance.url}:#{instance.port}#{@path}"
+            
+            #execute the request and store the value
+            response = system "curl -XPURGE #{entry['full_url']}"
+            if(response == "200 OK")
+              entry["response"] = "SUCCESS"
+            else
+              entry["response"] = "FAILED"
+            end
+            
+            @instances << entry
+          end
+          
+        end
+        
+      end
+        
+    end
+    
+  end
+  
+  def form
+    #redirect to the handle action
+    sitekey = params[:sitekey]
+    path = params[:path]
+    redirect_to "/#{sitekey}?#{path}"
   end
   
 end

@@ -1,5 +1,21 @@
-<%= @sitekey %>
 
-<%= @path %>
+<div>
+    
+    <h3>Invalidating content for site: <%= @sitekey %></h3>
+    
+    <% @services.each do |service| %>
+        <div class="well" style="margin-top: 10px;">
+            <h4>Service: <%= service %></h4>
+            <% @instances.each do |instance| %>
+                <div>
+                    <%= instance["response"] %>: <%= instance["full_url"] %>
+                </div>
+            <% end %>
+        </div>
+    <% end%>
+    
+</div>
 
-<%= @test %>
+<div>
+    <a class="btn" href="/">Invalidate another URL</a>
+</div>

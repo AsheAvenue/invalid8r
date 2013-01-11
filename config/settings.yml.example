@@ -1,7 +1,9 @@
-<sitekey> : 
-  varnish :
-    - url : <Varnish URL>
-      port : <Varnish Port>
-    - url : <Varnish URL>
-      port : <Varnish Port>
-      
+invalid8r : 
+  - sitekey: acme
+    services : 
+      - name : varnish
+        instances :
+          - url : whatever.com
+            port : 80
+          - url : whatever.com
+            port : 80
