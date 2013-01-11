@@ -14,10 +14,10 @@
 /log/*.log
 /tmp
 
-# Ignore the config file
-/config/config.yml
-
 #ignore the vagrant stuff
 /.vagrant
 /Cheffile.lock
 /cookbooks
+
+#ignore the config files
+config/settings.yml
