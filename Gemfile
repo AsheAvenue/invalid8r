@@ -7,5 +7,5 @@ gem 'uglifier'
 gem 'execjs'
 
 group :assets do
-  gem 'therubyracer'
+  gem 'therubyracer', :platforms => :ruby
 end
