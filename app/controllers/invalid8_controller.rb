@@ -1,5 +1,7 @@
 class Invalid8Controller < ApplicationController
   
+  skip_before_filter  :verify_authenticity_token
+  
   def index
     @options = Array.new
     Settings.invalid8r.each do |site|
