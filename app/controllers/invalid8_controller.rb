@@ -74,7 +74,6 @@ private
 
   def varnish(full_url)
     response = `curl -XPURGE #{full_url}`
-    puts "|#{(response) ? 'true' : 'false'}|"
     return response
   end
 end
