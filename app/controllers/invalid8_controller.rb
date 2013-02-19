@@ -48,7 +48,7 @@ class Invalid8Controller < ApplicationController
             puts "|#{response}|"
             
             #read the response
-            if(response "200 Purged")
+            if(response == "200 Purged")
               entry["response"] = "SUCCESS"
             else
               entry["response"] = "FAILED"
