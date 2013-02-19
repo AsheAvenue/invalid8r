@@ -43,9 +43,6 @@ class Invalid8Controller < ApplicationController
             #execute the request and store the value
             response = varnish(entry["full_url"])
             
-            puts response
-          
-            
             @instances << entry
           end
           
