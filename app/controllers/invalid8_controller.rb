@@ -46,11 +46,11 @@ class Invalid8Controller < ApplicationController
             puts response
             
             #read the response
-            # if(response.include? "200 Purged")
-            #             entry["response"] = "SUCCESS"
-            #           else
-            #             entry["response"] = "FAILED"
-            #           end
+            if(response.to_s.include? "200 Purged")
+              entry["response"] = "SUCCESS"
+            else
+              entry["response"] = "FAILED"
+            end
             
             @instances << entry
           end
