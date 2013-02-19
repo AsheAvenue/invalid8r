@@ -44,7 +44,7 @@ class Invalid8Controller < ApplicationController
             response = varnish(entry["full_url"])
             
             #read the response
-            if(response == "200 OK")
+            if(response.include? == "200 Purged")
               entry["response"] = "SUCCESS"
             else
               entry["response"] = "FAILED"
