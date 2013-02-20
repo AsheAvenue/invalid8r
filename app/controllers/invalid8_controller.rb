@@ -43,7 +43,7 @@ class Invalid8Controller < ApplicationController
             entry["full_url"] = "http://#{instance.url}:#{instance.port}#{@path}"
             
             #execute the request and store the value
-            response = varnish(entry["full_url"])
+            response = varnish(site.host, entry["full_url"])
             
             #read the response
             if(response.include? "200 Purged")
@@ -72,8 +72,8 @@ class Invalid8Controller < ApplicationController
   
 private
 
-  def varnish(full_url)
-    response = `curl -XPURGE #{full_url}`
+  def varnish(host, full_url)
+    response = `curl -XPURGE --header: "Host: #{host}" #{} #{full_url}`
     return response
   end
 end

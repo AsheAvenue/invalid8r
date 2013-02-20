@@ -1,5 +1,6 @@
 invalid8r : 
-  - sitekey: stylelist
+  - sitekey : stylelist
+    host : www.stylelist.com
     services : 
       - name : varnish
         instances :

@@ -1,9 +1,10 @@
 invalid8r : 
-  - sitekey: acme
+  - sitekey : acme
+    host : www.acme.com
     services : 
       - name : varnish
         instances :
-          - url : whatever.com
+          - url : url-of-varnish-server-1.com
             port : 80
-          - url : whatever.com
+          - url : url-of-varnish-server-x.com
             port : 80
