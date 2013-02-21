@@ -73,7 +73,7 @@ class Invalid8Controller < ApplicationController
 private
 
   def varnish(host, full_url)
-    response = `curl -XPURGE -H "Host: #{host}" #{} #{full_url}`
+    response = `curl -XPURGE -H "Host: #{host}" #{full_url}`
     return response
   end
 end
